@@ -1,6 +1,7 @@
 library(shiny)
 library(ggplot2)
 library(caret)
+library(e1071)
 
 read_titanic_survival <- function() {
     train_file <- "train.csv"

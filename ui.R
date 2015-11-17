@@ -7,7 +7,7 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-      numericInput('ageCutOff', 'Age cut of for survival classsification:', 
+      numericInput('ageCutOff', 'Age Cut of For Survival Classsification:', 
                    20, min = 5, max = 50, step = 1),    
       sliderInput("bins",
                   "Bin width:",
@@ -21,7 +21,7 @@ shinyUI(fluidPage(
       plotOutput("distPlot"),
       h3('Age cut off used'),
       verbatimTextOutput("ageCutOff"),
-      h3('Accuracy of Prediction with Age cut off'),
+      h3('Accuracy of Prediction with Age Cut Off'),
       verbatimTextOutput("prediction_accuracy")
     )
   )

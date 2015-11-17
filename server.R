@@ -7,6 +7,10 @@
 
 library(shiny)
 
+predict_survival <- function(ageCutOff) {
+    50
+}
+
 shinyServer(function(input, output) {
 
   output$distPlot <- renderPlot({
@@ -19,5 +23,8 @@ shinyServer(function(input, output) {
     hist(x, breaks = bins, col = 'darkgray', border = 'white')
 
   })
-
+  
+  output$ageCutOff <- renderPrint({input$ageCutOff})
+  output$prediction_accuracy <- renderPrint(
+      predict_survival(output$ageCutOff))
 })

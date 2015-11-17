@@ -1,30 +1,28 @@
-
-# This is the user-interface definition of a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
-
 library(shiny)
 
 shinyUI(fluidPage(
 
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Titanic Survival: Age, Sex and Class"),
 
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
+      numericInput('ageCutOff', 'Age cut of for survival classsification:', 
+                   20, min = 5, max = 50, step = 1),    
       sliderInput("bins",
-                  "Number of bins:",
+                  "Bin width:",
                   min = 1,
-                  max = 50,
-                  value = 30)
+                  max = 10,
+                  value = 2)
     ),
 
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot")
+      plotOutput("distPlot"),
+      h3('Age cut off used'),
+      verbatimTextOutput("ageCutOff"),
+      h3('Accuracy of Prediction with Age cut off'),
+      verbatimTextOutput("prediction_accuracy")
     )
   )
 ))
